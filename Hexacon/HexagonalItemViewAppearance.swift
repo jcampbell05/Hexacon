@@ -42,7 +42,7 @@ public struct HexagonalItemViewAppearance {
     
     static func defaultAppearance() -> HexagonalItemViewAppearance {
         return HexagonalItemViewAppearance(needToConfigureItem: false,
-            itemSize: 50,
+            itemSize: 60,
             itemSpacing: 10,
             itemBorderWidth: 5,
             itemBorderColor: UIColor.grayColor(),
