@@ -307,7 +307,7 @@ public final class HexagonalView: UIScrollView {
         
         guard numberOfItems > 0 else { return }
         
-        for index in 0...numberOfItems {
+        for index in 0..<numberOfItems {
             viewsArray.append(createHexagonalViewItem(index))
         }
         
