@@ -19,6 +19,8 @@ public class HexagonalItemView: UIView {
     public init(view: UIView) {
         super.init(frame: CGRectZero)
         
+        view.frame = bounds
+        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
     }
     
