@@ -42,16 +42,6 @@ public protocol HexagonalViewDataSource: class {
     func numberOfItemInHexagonalView(hexagonalView: HexagonalView) -> Int
     
     /**
-     Return a image to be displayed at index
-     
-     - parameter hexagonalView: The HexagonalView we are targeting
-     - parameter index:         The current Index
-     
-     - returns: The image we want to display
-     */
-    func hexagonalView(hexagonalView: HexagonalView,imageForIndex index: Int) -> UIImage?
-    
-    /**
      Return a view to be displayed at index, the view will be transformed in an image before being displayed
      
      - parameter hexagonalView: The HexagonalView we are targeting
@@ -167,12 +157,8 @@ public final class HexagonalView: UIScrollView {
         
         var itemView: HexagonalItemView
 
-        if let image = hexagonalDataSource?.hexagonalView(self, imageForIndex: index) {
-            itemView = HexagonalItemView(image: image, appearance: itemAppearance)
-        } else {
-            let view = (hexagonalDataSource?.hexagonalView(self, viewForIndex: index))!
-            itemView = HexagonalItemView(view: view)
-        }
+        let view = (hexagonalDataSource?.hexagonalView(self, viewForIndex: index))!
+        itemView = HexagonalItemView(view: view)
         
         itemView.frame = CGRect(x: 0, y: 0, width: itemAppearance.itemSize, height: itemAppearance.itemSize)
         itemView.userInteractionEnabled = true
